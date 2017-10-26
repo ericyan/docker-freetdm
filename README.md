@@ -31,7 +31,15 @@ RUN chmod 644 /usr/lib/freeswitch/mod/*.so
 
 Make sure the drivers are properly installed on the host. Then, use the
 `--device` option to add host device to the container when starting the
-container with `docker run`.
+container with `docker run`. For example:
+
+```
+sudo docker run -d --name ftdm \
+    --net=host \
+    --cap-add SYS_NICE \
+    --device /dev/dahdi/ \
+    ericyan/freetdm
+```
 
 ## Configuration
 
